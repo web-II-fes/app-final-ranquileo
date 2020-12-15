@@ -8,31 +8,31 @@ export class PaqueteService {
       'Content-Type': 'application/json',
     }),
   };
-  private pedidoUrl = 'http://localhost:3002/api/modules/paquete/';
+  private paqueteUrl = 'http://localhost:3002/api/modules/paquete/';
 
   constructor(private httpClient: HttpClient) {}
 
   getPedidos() {
-    return this.httpClient.get(this.pedidoUrl + 'pedido');
+    return this.httpClient.get(this.paqueteUrl + 'paquete');
   }
 
-  guardarPedido(pedido: any) {
+  guardarPedido(paquete: any) {
     return this.httpClient.post(
-      this.pedidoUrl + 'pedido',
-      JSON.stringify(pedido),
+      this.paqueteUrl + 'paquete',
+      JSON.stringify(paquete),
       this.httpOptions
     );
   }
 
-  editarPedido(idPedido, pedido) {
+  editarPedido(idPaquete, paquete) {
     return this.httpClient.put(
-      this.pedidoUrl + 'pedido/' + idPedido,
-      JSON.stringify(pedido),
+      this.paqueteUrl + 'pedido/' + idPaquete,
+      JSON.stringify(paquete),
       this.httpOptions
     );
   }
 
-  borrarPedido( idPedido ){
-    return this.httpClient.delete(this.pedidoUrl + 'pedido/' + idPedido, this.httpOptions);
+  borrarPedido( idPaquete ){
+    return this.httpClient.delete(this.paqueteUrl + 'paquete/' + idPaquete, this.httpOptions);
   }
 }
